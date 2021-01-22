@@ -8,14 +8,14 @@ const client = mqtt.connect(
 
 client.on("connect", () => {
   client.subscribe(settings.topicTime);
-  client.subscribe(settings.topicWeather);
-  client.subscribe(settings.topicTemp);
-  client.subscribe(settings.topicCity);
+  // client.subscribe(settings.topicWeather);
+  // client.subscribe(settings.topicTemp);
+  // client.subscribe(settings.topicCity);
 });
 
 client.on("message", (topic, message) => {
-  console.log(message.toString());
-  if (topic === settings.topicCity) {
-    console.log("----------------------");
-  }
+  console.log(JSON.parse(message));
+  // if (topic === settings.topicCity) {
+  //   console.log("----------------------");
+  // }
 });

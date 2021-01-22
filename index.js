@@ -11,10 +11,10 @@ client.on("connect", () => {
   setInterval(() => {
     const getWeatherData = getData();
     getWeatherData.then((data) => {
-      client.publish(settings.topicTime, data.time);
-      client.publish(settings.topicWeather, data.weather);
-      client.publish(settings.topicTemp, data.temp.toString());
-      client.publish(settings.topicCity, data.city);
+      client.publish(settings.topicTime, JSON.stringify(data));
+      // client.publish(settings.topicWeather, data.weather);
+      // client.publish(settings.topicTemp, data.temp.toString());
+      // client.publish(settings.topicCity, data.city);
     });
   }, 1000 * 5);
 });
