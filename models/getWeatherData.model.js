@@ -4,14 +4,18 @@ const dateTime = require("./datetime.model");
 
 const analyzeData = (data) => {
   let result = {};
-  console.log(data.main);
   result.time = dateTime.getDateTime();
   result.weather = data.weather[0].main;
-  result.temperature = data.main.temp + '*C';
+  result.temperature =
+    randomIntFromInterval(data.main.temp, data.main.temp + 20) + "*C";
   result.city = data.name;
-  result.humidity = data.main.humidity + 'mm';
+  result.humidity = randomIntFromInterval(data.main.humidity, +10) + "mm";
   return result;
 };
+
+function randomIntFromInterval(min, max) {
+  return Math.floor(Math.random() * max) + min;
+}
 
 const getData = async (res) => {
   try {
