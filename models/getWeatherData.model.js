@@ -9,7 +9,7 @@ const analyzeData = (data) => {
   result.temperature =
     randomIntFromInterval(data.main.temp, data.main.temp + 20) + "*C";
   result.city = data.name;
-  result.humidity = randomIntFromInterval(data.main.humidity, +10) + "mm";
+  result.humidity = randomIntFromInterval(data.main.humidity, +10) + "%";
   return result;
 };
 
