@@ -6,8 +6,9 @@ const analyzeData = (data) => {
   let result = {};
   result.time = dateTime.getDateTime();
   result.weather = data.weather[0].main;
-  result.temp = data.main.temp;
+  result.temperature = data.main.temp + '*C';
   result.city = data.name;
+  result.humidity = data.humidity + 'mm';
   return result;
 };
 
